@@ -1,0 +1,16 @@
+//- Все примеси в этом файле должны начинаться c имени блока (page-footer)
+
+mixin footer-menu(title, ...items)
+
+  //- Принимает:
+  //-   mods  {string} - список модификаторов
+  //- Вызов:
+        +page-footer()
+          p «Подвал»
+  -
+    // список модификаторов
+  div.footer-menu
+    h3.footer-title=title
+    ul.footer-menu__list
+      each item in items
+        li= item

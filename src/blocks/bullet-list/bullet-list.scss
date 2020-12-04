@@ -1,0 +1,26 @@
+.bullet{
+  &-list{
+    display: inline-block;
+    color: $dark-shade-75;
+    &__list{
+      list-style-type: none;
+      padding: 0;
+      li{
+        margin: 0 0 10px 0;
+      }
+      li::before{
+        content: "";
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: $dark-shade-25;
+        margin: 0 10px 0px 0;
+      }
+    }
+  }
+  &-title{
+    @include field-title;
+  }
+
+}

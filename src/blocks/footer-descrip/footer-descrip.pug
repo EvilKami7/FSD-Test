@@ -1,0 +1,22 @@
+//- Все примеси в этом файле должны начинаться c имени блока (page-footer)
+
+mixin footer-descrip(mods)
+
+  //- Принимает:
+  //-   mods  {string} - список модификаторов
+  //- Вызов:
+        +page-footer__descrip()
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' footer-descrip--' + modsList[i].trim();
+      }
+    }
+
+  .footer-descrip(class=allMods, role='contentinfo')&attributes(attributes)
+      +logo()
+      .footer-text__outter
+        div.footer-text Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.

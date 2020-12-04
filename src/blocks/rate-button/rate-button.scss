@@ -1,0 +1,88 @@
+// В этом файле должны быть стили для БЭМ-блока field-toggler, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+$color-danger: red;
+.rate {
+
+  &-form{
+    display: block;
+    margin-bottom: $typo-margin-vertical;
+    position: relative;
+  }
+  &-button{
+    display: flex;
+    flex-direction: row;
+  }
+  &-button__input {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    &--wrap{
+
+    }
+  }
+  &-label {
+    font-family: Material Icons;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5rem;
+    display: inline-block;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    &:after {
+      content: 'star_border';
+      background: linear-gradient(180deg,#bc9cff,#8ba4f9);
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+    @at-root input:checked ~ &:after{
+      content: 'star';
+    }
+
+  }
+
+
+  &-button__title {
+    @include field-title;
+  }
+
+
+  &__name {
+    display: inline-block;
+    position: relative;
+    padding-left: 3.2em;
+    margin-right: 0.6em;
+    font-weight: 400;
+    line-height: $line-height;
+  }
+
+  &__text-like{
+    font-family: $font-family;
+    display: inline-block;
+    position: absolute;
+    top: 7px; right: 17px;
+    font-size: 10px;
+    white-space: nowrap;
+    line-height: 12px;
+    color: $dark-shade-25;
+
+  }
+
+
+
+
+  &__help-text-wrap {
+    padding-left: 3.2em;
+  }
+
+  &__help-text {
+
+  }
+}

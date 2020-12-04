@@ -1,0 +1,108 @@
+.item-quantity{
+  width: 320px;
+  //height: 64px;
+  font-family: $font-family;
+
+  .iqdropdown{
+    height: 44px;
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    box-sizing: border-box;
+    border-radius: 4px 4px 2px 2px;
+    .iqdropdown-selection{
+      font-family: $font-family;
+      font-size: $font-size;
+      color: $dark-shade-75;
+    }
+    .iqdropdown-menu{
+      border: 1px solid rgba(31, 32, 65, 0.5);
+      box-sizing: border-box;
+      box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+      top: 44px;
+    }
+    .iqdropdown-menu-option{
+      height: 37px;
+    }
+    .iqdropdown-item {
+      font-family: $font-family--bold;
+      font-size: $font-size-h3;
+      color: $black;
+      text-transform: uppercase;
+    }
+    .iqdropdown-item-controls{
+      height: 30px;
+      align-items: center;
+      justify-content: space-between;
+      button{
+        height: 30px;
+        width: 30px;
+        border: 1px solid rgba(31, 32, 65, 0.25);
+        border-radius: 100%;
+        padding: 0px;
+      }
+      .counter{
+        font-family: $font-family--bold;
+        font-size: $font-size-h3;
+        color: $black;
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        text-transform: uppercase;
+        border: none;
+        padding: 0;
+      }
+    }
+    .icon-decrement{
+      &::after{
+        content: '-';
+        background: none;
+        top: 0px;
+        font-family: $font-family;
+        font-style: normal;
+        font-weight: normal;
+        //font-size: 18px;
+        color: $dark-shade-50;
+      }
+    }
+    .icon-increment{
+      &::after{
+        content: '+';
+        background: none;
+        top: 0px;
+        font-family: $font-family;
+        font-style: normal;
+        font-weight: normal;
+        //font-size: 18px;
+        color: $dark-shade-50;
+      }
+      &::before{
+        display: none;
+      }
+    }
+    .iqdropdown-button{
+      margin: 13px 7px 13px 14px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      &__delete,&__apply{
+        text-transform: uppercase;
+        font-weight: bold;
+        font-family: montserrat-Bold;
+        font-size: $font-size-h3;
+        color: $dark-shade-50;
+      }
+      &__delete{
+        display: none;
+      }
+      &__apply{
+        margin-left: auto;
+        color: $purple;
+      }
+    }
+
+  }
+  .menu-open{
+    border-color: rgba(31, 32, 65, 0.5);
+  }
+}

@@ -1,0 +1,27 @@
+//- Все примеси в этом файле должны начинаться c имени блока (page-footer)
+
+mixin footer-sub(title,text)
+
+  //- Принимает:
+  //-   mods  {string} - список модификаторов
+  //- Вызов:
+        +page-footer()
+          p «Подвал»
+  -
+    // список модификаторов
+  div.footer-sub
+    h3.footer-title=title
+    div.footer-text=text
+    +field-text({
+      title: '',
+      isTextarea: false,
+      helpText: '',
+      mods: 'sub',
+      val: '',
+      attrs: {
+        name: 'email',
+        placeholder:'Your email address',
+      }
+    })
+
+

@@ -1,0 +1,14 @@
+mixin bullet-list(title, ...items)
+
+    //- Принимает:
+    //-   mods  {string} - список модификаторов
+    //- Вызов:
+          +bullet-list()
+            p «Подвал»
+    -
+    // список модификаторов
+    div.bullet-list
+        h3.bullet-title=title
+        ul.bullet-list__list
+            each item in items
+                li= item

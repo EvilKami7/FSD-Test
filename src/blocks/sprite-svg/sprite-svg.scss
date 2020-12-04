@@ -1,0 +1,33 @@
+.icon{
+  display: inline;
+  fill: url('#linear-gradient');
+
+  &--arrow{
+    width: 18px;
+    height: 18px;
+    &__datepicker{
+      width: 18px!important;
+      height: 18px!important;
+    }
+    &__left{
+      transform: scale(-1, 1);
+    }
+  }
+  &--dropdown{
+    width: 12px;
+    height: 8px;
+    fill: #1F2041;
+  }
+  &--twitter{
+    width: 24px; height: 24px;
+    margin-right: 20px;
+  }
+  &--insta{
+    width: 24px; height: 24px;
+  }
+  &--facebook{
+    width: 24px; height: 24px;
+    margin-right: 20px;
+  }
+}
+

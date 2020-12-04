@@ -1,0 +1,60 @@
+//- Все примеси в этом файле должны начинаться c имени блока (field-toggler)
+
+mixin rate-button(rateButtons,title, rates)
+
+  //- Принимает:
+  //-   rateButtons {array}
+  //-     {object}
+  //-       rates: ''         {string} - текст рядом с переключателем
+  //-       mods: ''          {string} - модификаторы обёртки переключателя
+  //-       attrs:            {object} - любые атрибуты для input
+  //-         name:           {string}
+  //-     ...
+  //-   title: ''             {string} - общее название группы переключателей
+  //- Вызов:
+        +rate-button([
+          {
+            rates: '4',
+            attrs: {
+              name: 'rate',
+            }
+          },
+        ])
+        +rate-button([
+          {
+            rates: '4',
+            attrs: {
+              name: 'rate',
+              class: 'number1'
+            }
+          },
+          {
+            rates: '5',
+            mods: 'some',
+            attrs: {
+              name: 'rate',
+              class: 'number2'
+            }
+          },
+        ], 'ОбщееНазваниеБлока', true)
+
+  -
+  .rates-button&attributes(attributes)
+    if(typeof(title) !== 'undefined' && title)
+      .rate-button__title!= title
+    each rateButton in rateButtons
+      -
+        var allMods = '';
+        if(typeof(rateButton.mods) !== 'undefined' && rateButton.mods) {
+          var modsList = rateButton.mods.split(',');
+          for (var i = 0; i < modsList.length; i++) {
+            allMods = allMods + 'rate-button__' + modsList[i].trim();
+          }
+        }
+
+
+      .rate-button(class=allMods)(data-rate=rateButton.rates)
+        each i in ['1','2','3','4','5']
+          .rate-button__input--wrap
+            input.rate-button__input(type="checkbox", name="rate",id=i +'_'+ rateButton.id, value=i)&attributes(rateButton.attrs)
+            label.rate-label(for=i +'_'+ rateButton.id)

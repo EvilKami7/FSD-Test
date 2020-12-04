@@ -1,0 +1,55 @@
+mixin colors-block(mods)
+
+    //- Принимает:
+    //-   mods  {string} - список модификаторов
+    //- Вызов:
+          +page-header()
+            p «Шапка»
+    -
+        // список модификаторов
+        var allMods = '';
+        if(typeof(mods) !== 'undefined' && mods) {
+        var modsList = mods.split(',');
+        for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' page-header--' + modsList[i].trim();
+        }
+        }
+
+    div.colors-block(class=allMods, role='color-block')&attributes(attributes)
+        -
+            var colorList=[
+            {name:'Dark Shade 100%',
+             color:'dark-shade-100',
+             hex: '#1F2041'
+            },
+            {name:'Dark Shade 75%',
+             color:'dark-shade-75',
+             hex: '#1F2041'
+            },
+            {name:'Dark Shade 50%',
+             color:'dark-shade-50',
+             hex: '#1F2041'
+            },
+            {name:'Dark Shade 25%',
+             color:'dark-shade-25',
+             hex: '#1F2041'
+            },
+            {name:'Dark Shade 5%',
+             color:'dark-shade-5',
+             hex: '#1F2041'
+            },
+            {name:'Purple',
+             color:'purple',
+             hex: '#BC9CFF'
+            },
+            {name:'Green',
+             color:'green',
+             hex: '#6FCF97'
+            }
+            ]
+
+        each val in colorList
+            .colors-rectangle(class="colors-rectangle__"+val.color)
+            .colors-descrip
+                .colors-descrip__title!= val.name
+                .colors-descrip__content!= val.hex

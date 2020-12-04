@@ -1,0 +1,21 @@
+//- Все примеси в этом файле должны начинаться c имени блока (page-footer)
+
+mixin footer-copyright(text)
+
+  //- Принимает:
+  //-   mods  {string} - список модификаторов
+  //- Вызов:
+        +page-footer()
+          p «Подвал»
+  -
+    // список модификаторов
+  div.footer-copyright
+    div.footer-text=text
+    div.footer-social
+      +social()
+        +social-link('https://twitter.com/', 'tw')(title='twitter')
+          +svg-sprite('twitter','twitter')
+        +social-link('https://www.facebook.com/', 'fb')(title='facebook')
+          +svg-sprite('facebook','facebook')
+        +social-link('https://instagram.com/', 'insta')(title='instagram')
+          +svg-sprite('insta','insta')

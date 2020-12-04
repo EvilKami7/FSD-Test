@@ -1,0 +1,30 @@
+mixin footer-creative(mods)
+
+    //- Принимает:
+    //-   mods  {string} - список модификаторов
+    //- Вызов:
+          +page-footer()
+            p «Подвал»
+    -
+    // список модификаторов
+        var allMods = '';
+        if(typeof(mods) !== 'undefined' && mods) {
+        var modsList = mods.split(',');
+        for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' page-footer--' + modsList[i].trim();
+        }
+        }
+
+    footer.footer-creative(class=allMods, role='contentinfo')&attributes(attributes)
+        //обертка позиционирование
+        .footer-creative__inner
+            +footer-descrip('center')
+                // обертка позиционирование
+        div.footer-social
+            +social()
+                +social-link('https://twitter.com/', 'tw')(title='twitter')
+                    +svg-sprite('twitter','twitter')
+                +social-link('https://www.facebook.com/', 'fb')(title='facebook')
+                    +svg-sprite('facebook','facebook')
+                +social-link('https://instagram.com/', 'insta')(title='instagram')
+                    +svg-sprite('insta','insta')

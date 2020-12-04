@@ -1,0 +1,10 @@
+// В этом файле должны быть стили для БЭМ-блока page-footer, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.footer-copyright{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}

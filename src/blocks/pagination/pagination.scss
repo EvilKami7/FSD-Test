@@ -1,0 +1,71 @@
+// В этом файле должны быть стили для БЭМ-блока pagination, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: $typo-margin-vertical;
+  margin-bottom: $typo-margin-vertical;
+
+  &__item {
+    display: block;
+    //min-width: 2em;
+    font-size: $font-size-h3;
+    // border: 1px solid $border-color;
+    //padding: 0.3em 0.6em;
+    text-decoration: none;
+    text-align: center;
+    line-height: 40px;
+    color: $dark-shade-100;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+
+    & + & {
+      border-left: 0;
+    }
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: $dark-shade-100;
+    }
+
+    @at-root a#{&} {
+
+      &:hover,
+      &:focus {
+        background-color: $dark-shade-50
+      }
+    }
+
+    @at-root span#{&} {
+      cursor: default;
+    }
+
+    &--active {
+      background: $linear-purple;
+      color: $white;
+      font-family: montserrat-Bold;
+    }
+
+    &--arrow{
+      display: inline-block;
+      background: $linear-green;
+      font-family: "Material Icons";
+      width: 40px; height: 40px;
+      border-radius: 100%;
+      &:after{
+        content: 'arrow_forward';
+        position: relative;
+        font-style: normal;
+        font-weight: normal;
+        font-size: $font-size-h1;
+        line-height: 40px;
+        left: 8px;
+        color: $white;
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+//- Все примеси в этом файле должны начинаться c имени блока (field-checkbox)
+
+mixin item-quantity(items, dataitem, title, descrip)
+
+  //- Принимает:
+  //-   item-quantity {array}
+  //-     {object}
+  //-       title: ''         {string} - текст рядом с чекбоксом
+  //-       helpText: ''      {string} - пояснение под полем
+  //-       mods: ''          {string} - модификаторы обертки чекбокса
+  //-       attrs:            {object} - любые атрибуты для input
+  //-         name:           {string}
+  //-     ...
+  //- Вызов:
+        +item-quantity([
+          {
+            title: 'items0',
+            helpText: 'Подсказка',
+            attrs: {
+              name: 'check0',
+            }
+          },
+        ])
+        +item-quantity([
+          {
+            title: 'items0',
+            helpText: 'Подсказка',
+            mods: 'error',
+            attrs: {
+              name: 'check1',
+              checked: true,
+            }
+          },
+          {
+            title: 'items1',
+            helpText: 'Подсказка',
+            mods: 'error',
+            attrs: {
+              name: 'check2',
+            }
+          },
+        ], 'ОбщееНазваниеБлока', 'default')
+
+  .item-quantity&attributes(attributes)
+    if(typeof(title) !== 'undefined' && title)
+      .item-quantity__title!= title
+    if(typeof(descrip) !== 'undefined' && descrip)
+      .item-quantity__descrip!= descrip
+    .iqdropdown.guest(data = dataitem)
+      p.iqdropdown-selection(data-selection-text="гость" data-text-plural="гостя") Сколько гостей
+        .iqdropdown-menu
+          each item in items
+            -
+              var allMods = '';
+              if(typeof(item.mods) !== 'undefined' && item.mods) {
+                var modsList = item.mods.split(',');
+                  for (var i = 0; i < modsList.length; i++) {
+                      allMods = allMods + '.iqdropdown-menu-option--' + modsList[i].trim();
+                  }
+              }
+            .iqdropdown-menu-option(class=allMods)&attributes(item.attrs)
+              div
+                p.iqdropdown-item!= item.title
+                if(typeof(item.helpText) !== 'undefined' && item.helpText)
+                  p.iqdropdown-description!=item.helpText
+
+          div.iqdropdown-button
+            button.iqdropdown-button__delete(type='button') Очистить
+            button.iqdropdown-button__apply(type='button') Применить

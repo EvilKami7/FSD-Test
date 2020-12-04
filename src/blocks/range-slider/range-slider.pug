@@ -1,0 +1,48 @@
+//- Все примеси в этом файле должны начинаться c имени блока (field-range)
+
+mixin range-slider(props)
+
+  //- Принимает:
+  //-   props {object}
+  //-     title: ''         {string} - текст с названием (выводится над полем)
+  //-     helpText: ''      {string} - пояснение под полем
+  //-     mods: ''          {string} - модификаторы блока
+  //-     attrs:            {object} - любые атрибуты для input
+  //-       name:           {string}
+  //- Вызов:
+        +range-slider({
+          title: 'Название',
+          helpText: 'Подсказка',
+          mods: '',
+          attrs: {
+            id: 'counter',
+            data-min: '0',
+            data-max: '20000',
+            data-value-min: '5000',
+            data-value-max: '10000',
+            data-step: '1000',
+          }
+        })
+
+  -
+    if(typeof(props) === 'undefined') {
+      var props = {};
+    }
+    var allMods = '';
+    if(typeof(props.mods) !== 'undefined' && props.mods) {
+      var modsList = props.mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' range-slider--' + modsList[i].trim();
+      }
+    }
+
+  label.range-slider(class=allMods)&attributes(attributes)
+    if(typeof(props.title) !== 'undefined' && props.title)
+      span.range-slider__title!= props.title
+      span.range-slider__range
+    div.range-slider__wrap
+      //input.field-range__input(type='range')&attributes(props.attrs)
+      div.range-slider__input&attributes(props.attrs)
+      if(typeof(props.helpText) !== 'undefined' && props.helpText)
+        span.field-range__help-text!= props.helpText
+      block

@@ -1,0 +1,27 @@
+//- Все примеси в этом файле должны начинаться c имени блока (uikit-block)
+
+mixin uikit-block(mods)
+
+  //- Принимает:
+  //-   mods  {string} - список модификаторов
+  //- Вызов:
+        +uikit-block('')
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' uikit-block--' + modsList[i].trim();
+      }
+    }
+
+
+  .uikit-block(class=allMods, role='library')&attributes(attributes)
+    .uikit-img
+      img(src='img/demo-logo.svg')
+    .uikit-block__inner
+      block
+
+
+

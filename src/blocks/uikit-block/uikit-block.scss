@@ -1,0 +1,48 @@
+.uikit{
+  background: #E5E5E5;
+  padding: 50px;
+  &__inner{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 50px;
+    grid-template: none;
+  }
+}
+.uikit-block{
+  position: relative;
+  background: #FFF;
+  padding: 150px 140px;
+  &--grey{
+    background: #F4F4F6;
+
+  }
+  width: 1440px;
+  &__inner{
+
+  }
+
+}
+.uikit-img{
+  position: absolute;
+  top: 30px; left: 30px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.headersfooters{
+  &__inner{}
+  padding: 130px 0px;
+  &__outter{
+    padding: 20px 0px;
+  }
+}
+
+.colorstypes{
+  padding: 145px 150px;
+  &__inner{
+    display: grid;
+    grid-template-columns: 693px 1fr;
+  }
+}
+

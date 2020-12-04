@@ -1,0 +1,33 @@
+//- Все примеси в этом файле должны начинаться c имени блока (page-footer)
+
+mixin page-footer(mods)
+
+  //- Принимает:
+  //-   mods  {string} - список модификаторов
+  //- Вызов:
+        +page-footer()
+          p «Подвал»
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' page-footer--' + modsList[i].trim();
+      }
+    }
+
+  footer.page-footer(class=allMods, role='contentinfo')&attributes(attributes)
+    //обертка позиционирование
+    .page-footer__inner
+      .footer-widgets
+        .footer-widgets__inner
+          +footer-descrip('left')
+          +footer-menu('NAVIGATION', 'About Us', 'News', 'Support', 'Products')
+          +footer-menu('ABOUT US', 'Who we are', 'Our team', 'Careers', 'Investors')
+          +footer-menu('SUPPORT', 'Documentation', 'Community', 'Get in Touch')
+          +footer-sub('Subscribe to our newsletter', 'Receive our latest news and promotions in your inbox!')
+        // обертка позиционирование
+      .footer-copybar
+        .footer-copybar__inner
+          +footer-copyright('Copyright © 2018 Toxin UI Kit. All rights reserved.')

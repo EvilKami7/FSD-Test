@@ -1,0 +1,10 @@
+// В этом файле должны быть стили для БЭМ-блока page-footer, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.footer-sub{
+  max-width: 260px;
+  .field-text--sub{
+    margin-top: 20px;
+  }
+}

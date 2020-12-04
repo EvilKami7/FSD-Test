@@ -1,0 +1,42 @@
+mixin type-block(mods)
+
+    //- Принимает:
+    //-   mods  {string} - список модификаторов
+    //- Вызов:
+          +page-header()
+            p «Шапка»
+    -
+       // список модификаторов
+        var allMods = '';
+        if(typeof(mods) !== 'undefined' && mods) {
+        var modsList = mods.split(',');
+        for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' page-header--' + modsList[i].trim();
+        }
+        }
+
+    div.type-block(class=allMods, role='color-block')&attributes(attributes)
+        -
+            var typeList=[
+            {name:'H1',
+            font:'h1',
+            descrip: 'This one is the sub-section or widget title H1'
+            },
+            {name:'H2',
+            font:'h2',
+            descrip: 'Next one is the item title inside widgets'
+            },
+            {name:'H3',
+            font:'h3',
+            descrip: 'This is a label or CTA text'
+            },
+            {name:'Body',
+            font:'body',
+            descrip: 'This is the body text which is used for most of the design, like paragraphs, lists, etc.'
+            }
+            ]
+
+        each val in typeList
+            .type-descrip
+                .type-title(class="type-title__"+val.font)!= val.name
+                .type-content(class="type-content__"+val.font)!= val.descrip

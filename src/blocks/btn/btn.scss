@@ -1,0 +1,103 @@
+// В этом файле должны быть стили для БЭМ-блока btn, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+$border-radius: 22px;
+$field-padding-vertical: 10px;
+$field-padding-vertical--click: 15px;
+$field-padding-horizontal: 20px;
+$line-height-btn : 15px;
+$text-color: $purple;
+$border-color: linear-gradient(180deg, rgba(188, 156, 255, 1) 0%, rgba(139, 164, 249, 1) 100%);
+$border-color-hover: linear-gradient(180deg, rgba(188, 156, 255, 0.5) 0%, rgba(139, 164, 249, 0.5) 100%);
+//$border: 3px;
+.btn {
+  box-sizing: border-box;
+  display: inline-block;
+  max-width: 100%;
+  margin: 0;
+  border-radius: $border-radius;
+  // border: 1px solid $gray-lighter;
+  border: solid 0px transparent;
+  padding: $field-padding-vertical  $field-padding-horizontal;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  user-select: none;
+  text-align: center;
+  font-size: $font-size-h3;
+  font-family: $font-family--bold;
+  font-weight: bold;
+  line-height: $line-height-btn;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $white;
+  background: $border-color;
+  background-clip: padding-box;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  //position: relative;
+
+  &--hover, &:hover,
+  &:focus {
+    background: $border-color-hover;
+  }
+
+  &--main {
+    color: $text-color;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      margin: 3px; /* !importanté */
+      border-radius: inherit; /* !importanté */
+      background-color: $white;
+    }
+    &:hover,
+    &:focus {
+      background: $border-color-hover;
+    }
+  }
+
+  &--link{
+    border: none;
+    border-radius: 0px;
+    background: none;
+    color: $text-color;
+    padding: 0 0;
+  }
+  &--gray{
+    color: $dark-shade-50;
+  }
+
+  &--click{
+    padding: $field-padding-vertical--click  $field-padding-horizontal;
+  }
+
+  &--pay{
+    width: 280px;
+    position: relative;
+    span{
+      font-family: "Material Icons";
+      display: inline-block;
+      text-transform: none;
+      &::before{
+        content:'arrow_forward';
+        position: relative;
+        font-style: normal;
+        font-weight: normal;
+        font-size: $font-size-h1;
+        top: 7px;
+        right: -50px;
+        line-height: 0px;
+        color: $white;
+      }
+    }
+  }
+
+}

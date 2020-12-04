@@ -1,0 +1,143 @@
+.datepicker{
+  width: 320px;
+  font-family: $font-family;
+  &--pointer{
+    display: none;
+  }
+  &--nav{
+    border-bottom: none;
+    min-height: 32px;
+    padding: 15px 18px 22px;
+    &-title{
+      font-family: $font-family--quicksandbold;
+      font-size: $font-size-h2;
+      line-height: $line-height;
+    }
+  }
+  &--content{
+    //padding: 0px 22px;
+    font-size: $font-size-h3;
+    line-height: $line-height-h3;
+  }
+  &--days{
+    &-names{
+      padding-left: 15px;
+      padding-right: 15px;
+      margin: 8px 0;
+    }
+  }
+  &--day-name{
+    text-transform: none;
+    color: $purple;
+    font-size: $font-size-h3;
+    font-weight: bold;
+
+  }
+
+  &--cells{
+    padding-left: 16px;
+    padding-right: 16px;
+    &-days{
+
+    }
+  }
+  &--cell{
+    height: 40px;
+    border-radius: 50%;
+    &:focus{
+      border-radius: 50%;
+      background: $linear-purple;
+    }
+    &:hover{
+      border-radius: 50%;
+      background: $linear-purple;
+      color: $white;
+      font-weight: bold;
+    }
+    &-day{
+      width: 40px;
+      border-radius: 50%;
+
+    }
+
+    &.-other-month-{
+
+    }
+    &.-weekend-{
+
+    }
+    &.-current-{
+      background: $linear-green;
+      //border-radius: 22px;
+      font-weight: bold;
+      color: $white;
+    }
+    &.-selected-{
+      color: $white;
+      font-weight: bold;
+      border-radius: 50%;
+    }
+    &.-range-from-,&.-range-to-{
+      background: $linear-purple;
+      &:hover,&:focus{
+        background: $linear-purple;
+        color: $white;
+        border: none;
+        font-weight: 700;
+      }
+    }
+    &.-range-from-:before{
+      content: '';
+      background: linear-gradient(180deg,rgba(188,156,255,.25),rgba(139,164,249,.25));
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      left: 50%;
+      z-index: -1;
+    }
+    &.-range-to-:before{
+      content: '';
+      background: linear-gradient(180deg,rgba(188,156,255,.25),rgba(139,164,249,.25));
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      left: 0;
+      z-index: -1;
+    }
+
+
+    &.-in-range-{
+      background: linear-gradient(180deg,rgba(188,156,255,.25),rgba(139,164,249,.25));
+      color: $dark-shade-50;
+      border-radius: 0;
+      &.-current-{
+        color: $white;
+      }
+    }
+    &.-range-to-{}
+
+
+
+  }
+  &--buttons{
+    border-top: none;
+    padding: 12px 20px 6px;
+    .apply--button{
+      color: $purple;
+      text-align: right;
+    }
+  }
+  &--button{
+    color: $dark-shade-50;
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    height: 32px;
+    text-transform: uppercase;
+    font-size: $font-size-h3;
+    font-family: montserrat;
+    &:hover{
+      background: none;
+    }
+  }
+}

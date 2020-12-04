@@ -1,0 +1,63 @@
+// В этом файле должны быть стили для БЭМ-блока field-range, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.range-slider{
+  display: block;
+  max-width: 266px;
+}
+
+.range-slider__range{
+  float: right;
+  text-transform: uppercase;
+  color: $dark-shade-50;
+}
+.range-slider__title{
+  @include field-title;
+}
+
+.range-slider__input {
+  position: relative;
+  max-width: 266px;
+  height: 10px;
+  background-color: $white;
+  margin: 25px 0;
+  border-radius: 6px;
+  border: 1px solid $dark-shade-25;
+  .ui-slider-handle {
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background: $linear-green;
+    border: 2px solid #FFFFFF;
+    border-radius: 100%;
+    cursor: pointer;
+    outline: none;
+  }
+  .ui-slider-range{
+    background: $linear-green;
+    border-radius: 3px;
+    //border: 1px solid transparent;
+  }
+}
+
+.value {
+  display: inline-block;
+  position: relative;
+  padding: 7px;
+  background-color: #666;
+  border-radius: 5px;
+  bottom: 30px;
+  left: 50%;
+  white-space: nowrap;
+  //transform: translateX(-50%);
+  color: #fff;
+  font-size: 11px;
+}
+
+
+
+

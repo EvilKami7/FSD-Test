@@ -1,0 +1,14 @@
+mixin svg-sprite(name, mods)
+  -
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' icon--' + modsList[i].trim();
+      }
+    }
+
+
+  //a(href="#{url}" class="#{name}_link")
+  svg.icon(class=allMods)
+      use(xlink:href="../img/sprite.svg#" + name)

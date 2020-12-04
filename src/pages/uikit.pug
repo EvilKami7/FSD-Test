@@ -1,0 +1,384 @@
+extends ../pug/layout-uikit.pug
+
+block meta
+  title UI kit
+  meta(name='description', content='')
+
+//- block append head
+//-   link(rel='stylesheet', href='css/some.css')
+block nav
+  +main-nav('0')
+
+block content
+
+  +uikit-block().colorstypes
+    block colorstypes
+      div.colorstypes__inner
+        +colors-block
+        +type-block
+
+  +uikit-block().formelements
+    block formelements
+      div.formelements__inner
+        +field-text({
+            title: 'text field',
+            isTextarea: false,
+            descrip: 'default',
+            mods: '',
+            val: '',
+            attrs: {
+                name: 'email',
+                placeholder: 'Email',
+            }
+        })
+        +field-text({
+            title: 'text field',
+            isTextarea: false,
+            descrip: 'Hover / Focus',
+            mods: 'hover',
+            val: 'This is pretty awesome',
+            attrs: {
+                name: 'email',
+                placeholder: 'Email',
+            }
+        })
+        +field-text({
+            title: 'masked text field',
+            isTextarea: false,
+            descrip: 'default',
+            mods: 'mask',
+            val: '',
+            attrs: {
+                name: '',
+                id:'date',
+                placeholder: 'ДД.ММ.ГГГГ',
+                spellcheck: 'false',
+            }
+        })
+        +field-text({
+            title: 'subscription text field',
+            isTextarea: false,
+            descrip: '',
+            mods: 'sub',
+            val: '',
+            attrs: {
+                name: 'email',
+                placeholder: 'Your email address',
+            }
+        })
+        +field-text({
+            title: 'date Dropdown',
+            isTextarea: false,
+            descrip: '',
+            mods: 'dropdown',
+            val: '',
+            attrs: {
+                id: 'date-from',
+                name: '',
+                placeholder: 'ДД.ММ.ГГГГ',
+                class: 'datepicker-here',
+                spellcheck: 'false',
+                'data-range': 'true',
+                'data-multiple-dates-separator': ' - ',
+            }
+        })
+        +field-text({
+            title: 'date Dropdown',
+            isTextarea: false,
+            descrip: '',
+            mods: 'dropdown',
+            val: '',
+            attrs: {
+                id: 'date-to',
+                name: '',
+                placeholder: 'ДД.ММ.ГГГГ',
+                spellcheck: 'false',
+            }
+        })
+
+        +field-checkbox([
+            {
+                title: 'Можно курить',
+                helpText: '',
+                mods: '',
+                attrs: {
+                    name: 'check1',
+                    checked: true,
+                }
+            },
+            {
+                title: 'Можно с питомцами',
+                helpText: '',
+                mods: '',
+                attrs: {
+                    name: 'check2',
+                }
+            },
+            {
+                title: 'Можно пригласить гостей (до 10 человек)',
+                helpText: '',
+                mods: '',
+                attrs: {
+                    name: 'check3',
+                }
+            },
+        ], 'Checkbox buttons')
+
+        +field-toggler([
+            {
+                title: 'Получать спецпредложения',
+                attrs: {
+                    name: 'check1',
+                    checked: true,
+                }
+            },
+            {
+                title: 'Получать спецпредложения',
+                mods: 'some',
+                attrs: {
+                    name: 'check2',
+                }
+            },
+        ], 'Toggle', false)
+
+        +field-radio([
+            {
+                title: 'Мужчина',
+                mods: '',
+                attrs: {
+                    name: 'radio',
+                    checked: true,
+                }
+            },
+            {
+                title: 'Женщина',
+                mods: '',
+                attrs: {
+                    name: 'radio',
+                }
+            },
+        ], 'Radio Buttons')
+
+        +like-button([
+            {
+                likes: '2',
+                attrs: {
+                    name: 'check1',
+                    checked: true,
+                }
+            },
+            {
+                likes: '12',
+                mods: 'some',
+                attrs: {
+                    name: 'check2',
+                }
+            },
+        ], 'like button', false)
+
+        +rate-button([
+            {
+                rates: '4',
+                mods:'star1',
+                id: '1',
+                attrs: {
+                    name: 'rate',
+                    class: 'number1'
+                }
+            },
+            {
+                rates: '5',
+                mods: 'star2',
+                id: '2',
+                attrs: {
+                    name: 'rate',
+                    class: 'number2'
+                }
+            },
+        ], 'rate button')
+        +range-slider({
+            title: 'range slider',
+            helpText: '',
+            mods: '',
+            attrs: {
+                id: 'counter',
+                'data-min': '0',
+                'data-max': '15000',
+                'data-value-min': '5000',
+                'data-value-max': '10000',
+                'data-step': '1000',
+            }
+            })
+        +btn('Click me', 'click')
+        +btn('Click me', 'click, hover')
+        +btn('Click me', 'main, click')
+        +btn('Click me', 'main, click, hover')
+        +btn('Click me', 'link')(href='/')
+        +btn('Click me', 'link, gray')(href='/')
+        +btn('перейти к оплате', 'click, pay')
+
+        +pagination()
+            +pagination-item('1', '/1', true)
+            +pagination-item('2', '/2')
+            +pagination-item('3', '/3')
+            +pagination-item('...')
+            +pagination-item('15', '/15')
+
+        +item-quantity([
+          {
+              title: 'Взрослые',
+              helpText: '',
+              mods: '',
+              attrs: {
+                  name: 'Взрослые',
+                  'data-id': 'Adults',
+              }
+          },
+          {
+              title: 'Дети',
+              helpText: '',
+              mods: '',
+              attrs: {
+                  name: 'Дети',
+                  'data-id': 'Children',
+              }
+          },
+          {
+              title: 'Младенцы',
+              helpText: '',
+              mods: '',
+              attrs: {
+                  name: 'Младенцы',
+                  'data-id': 'Baby',
+              }
+          },
+        ],'data-1', 'dropdown', 'Default')
+
+        +item-quantity([
+          {
+              title: 'Взрослые',
+              helpText: '',
+              mods: '',
+              attrs: {
+                  name: 'Взрослые',
+                  'data-id': 'Adults',
+              }
+          },
+          {
+              title: 'Дети',
+              helpText: '',
+              mods: '',
+              attrs: {
+                  name: 'Дети',
+                  'data-id': 'Children',
+              }
+          },
+          {
+              title: 'Младенцы',
+              helpText: '',
+              mods: '',
+              attrs: {
+                  name: 'Младенцы',
+                  'data-id': 'Baby',
+              }
+          },
+        ],'data-2', 'dropdown', 'Default')
+
+        +checkbox-list([
+          {
+              title: 'Завтрак',
+              helpText: '',
+              mods: '',
+              attrs: {
+                  name: 'check1',
+              }
+          },
+          {
+              title: 'Письменный стол',
+              helpText: '',
+              mods: '',
+              attrs: {
+                  name: 'check2',
+                  checked: true,
+              }
+          },
+          {
+              title: 'Стул для кормления',
+              helpText: '',
+              mods: '',
+              attrs: {
+                  name: 'check3',
+                  checked: true,
+              }
+          },
+          {
+              title: 'Кроватка',
+              helpText: '',
+              mods: '',
+              attrs: {
+                  name: 'check3',
+                  checked: true,
+              }
+          },
+          {
+              title: 'Телевизор',
+              helpText: '',
+              mods: '',
+              attrs: {
+                  name: 'check3',
+              }
+          },
+          {
+              title: 'Шампунь',
+              helpText: '',
+              mods: '',
+              attrs: {
+                  name: 'check3',
+              }
+          },
+        ], 'Expandable checkbox list')
+
+        +field-checkbox([
+          {
+              title: 'Широкий коридор',
+              helpText: 'Ширина коридоров в номере не менее 91 см.',
+              mods: '',
+              attrs: {
+                  name: 'check1',
+              }
+          },
+          {
+              title: 'Помощник для инвалидов',
+              helpText: 'На 1 этаже вас встретит специалист и проводит до номера.',
+              mods: '',
+              attrs: {
+                  name: 'check2',
+              }
+          },
+        ], 'Rich checkbox buttons')
+
+        +bullet-list('bullet list',
+        'Нельзя с питомцами',
+        'Без вечеринок и мероприятий',
+        'Время прибытия — после 13:00,\n' +
+        'а выезд до 12:00')
+
+
+
+  +uikit-block('grey').headersfooters
+    block headersfooters
+      div.headersfooters__inner
+        .headersfooters__outter
+          +page-header('')
+        .headersfooters__outter
+          +page-header('auto')
+        .headersfooters__outter
+          +page-footer()
+        .headersfooters__outter
+          +footer-creative()
+
+//- block footer
+//-   p footer
+
+//- block append page-bottom
+//-   script(src='js/some.js')

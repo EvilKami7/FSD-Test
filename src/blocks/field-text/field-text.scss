@@ -1,0 +1,89 @@
+// В этом файле должны быть стили для БЭМ-блока field-text, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+//@import 'airdatepicker/css/datepicker.min.css';
+
+$field-padding-vertical: 13px;
+$field-padding-horizontal: 15px;
+$line-height: 20px;
+$input-height: 44px;
+.field-text {
+  $block-name:                &; // #{$block-name}__element
+  display: block;
+  //margin-bottom: $typo-margin-vertical;
+  max-width: 320px;
+  width: 100%;
+  font-family: $font-family;
+  &__name, &__descrip{
+    //@include field-name;
+    display: inline;
+    text-transform: uppercase;
+    font-family: $font-family--bold;
+    font-size: $font-size-h3;
+    line-height: $line-height-h3;
+    color: $dark-shade-100;
+  }
+  &__descrip{
+    color: $dark-shade-50;
+    font-family: $font-family;
+    text-align: right;
+  }
+  &__input-wrap,&__descrip-wrap{
+    display: block;
+    position: relative;
+  }
+  &__descrip-wrap{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__input {
+    padding: $field-padding-vertical $field-padding-horizontal;
+    height: $input-height;
+    width: 100%;
+    border: 1px solid $dark-shade-25;
+    border-radius: 4px;
+    color: $dark-shade-75;
+    font-family: $font-family;
+    &::placeholder{
+      color: $dark-shade-25;
+      //font-family: $font-family;
+    }
+    &:hover, focus{
+      //color: $dark-shade-75;
+      //font-family: $font-family;
+      border: 1px solid $dark-shade-50;
+      outline: none;
+    }
+    @at-root textarea#{&} {
+      $textarea-height: ($line-height * 2) + ($field-padding-vertical * 2);
+      height: auto;
+      //min-height: calc(#{$textarea-height} + 2px);
+      resize: vertical;
+    }
+  }
+
+  &--sub{
+    max-width: 267px;
+    position: relative;
+  }
+  &__button{
+    position: absolute;
+    top: 0px; right: 0px;
+    height: $input-height;
+    width: $input-height;
+    border: none;
+    outline: none;
+    background: transparent;
+  }
+  &--hover{
+
+  }
+
+  &--dropdown{
+    max-width: 150px;
+    display: inline-block;
+    margin-right: 20px;
+  }
+
+}

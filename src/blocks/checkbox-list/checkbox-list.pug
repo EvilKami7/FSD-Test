@@ -1,0 +1,66 @@
+//- Все примеси в этом файле должны начинаться c имени блока (field-checkbox)
+
+mixin checkbox-list(checkboxes, title)
+
+  //- Принимает:
+  //-   checkboxes {array}
+  //-     {object}
+  //-       title: ''         {string} - текст рядом с чекбоксом
+  //-       helpText: ''      {string} - пояснение под полем
+  //-       mods: ''          {string} - модификаторы обертки чекбокса
+  //-       attrs:            {object} - любые атрибуты для input
+  //-         name:           {string}
+  //-     ...
+  //- Вызов:
+        +checkbox-list([
+          {
+            title: 'Чекбокс0',
+            helpText: 'Подсказка',
+            attrs: {
+              name: 'check0',
+            }
+          },
+        ])
+        +checkbox-list([
+          {
+            title: 'Чекбокс1',
+            helpText: 'Подсказка',
+            mods: 'error',
+            attrs: {
+              name: 'check1',
+              checked: true,
+            }
+          },
+          {
+            title: 'Чекбокс2',
+            helpText: 'Подсказка',
+            mods: 'error',
+            attrs: {
+              name: 'check2',
+            }
+          },
+        ], 'ОбщееНазваниеБлока')
+
+  .checkbox-list&attributes(attributes)
+    if(typeof(title) !== 'undefined' && title)
+      .checkbox-list__title
+        span.checkbox-list__title--title!= title
+        span.checkbox-list__title--mode
+      .checkbox-list-wrap--hidden
+        each checkbox in checkboxes
+          -
+            var allMods = '';
+            if(typeof(checkbox.mods) !== 'undefined' && checkbox.mods) {
+              var modsList = checkbox.mods.split(',');
+              for (var i = 0; i < modsList.length; i++) {
+                allMods = allMods + ' checkbox-list__input-wrap--' + modsList[i].trim();
+              }
+            }
+
+          .checkbox-list__input-wrap(class=allMods)
+            label.checkbox-list__name
+              input.checkbox-list__input(type='checkbox')&attributes(checkbox.attrs)
+              span.checkbox-list__name-text!= checkbox.title
+            if(typeof(checkbox.helpText) !== 'undefined' && checkbox.helpText)
+              .checkbox-list__help-text-wrap
+                .checkbox-list__help-text!= checkbox.helpText
